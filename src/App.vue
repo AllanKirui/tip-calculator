@@ -1,5 +1,16 @@
 <template>
-  <header></header>
+  <section class="container">
+    <header>
+      <div>
+        <img
+          src="./assets/images/logo.svg"
+          width="87"
+          height="54"
+          alt="tip calculator logo"
+        />
+      </div>
+    </header>
+  </section>
 </template>
 
 <style>
@@ -14,12 +25,12 @@
   --color-white: #ffffff;
 
   /* Font sizes */
-  --font-size-13: 13px;
-  --font-size-16: 16px;
-  --font-size-20: 20px;
-  --font-size-24: 24px;
-  --font-size-32: 32px;
-  --font-size-48: 48px;
+  --font-size-13: 0.8125rem;
+  --font-size-16: 1rem;
+  --font-size-20: 1.25rem;
+  --font-size-24: 1.5rem;
+  --font-size-32: 2rem;
+  --font-size-48: 3rem;
 
   /* Fonts */
   --font-space-mono: "Space Mono", sans-serif;
@@ -68,5 +79,16 @@ p {
 
 .flex-ai-c {
   align-items: center;
+}
+/* End of utility classes and resets */
+
+.container {
+  margin: 0 auto;
+  max-width: 57.5rem;
+}
+
+header {
+  margin-top: 10.125rem;
+  text-align: center;
 }
 </style>
