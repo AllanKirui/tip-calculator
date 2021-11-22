@@ -10,9 +10,22 @@
         />
       </div>
     </header>
+
+    <div class="calculator-wrapper">
+      <the-input></the-input>
+    </div>
   </section>
 </template>
 
+<script>
+import TheInput from "./components/TheInput.vue";
+
+export default {
+  components: {
+    "the-input": TheInput,
+  },
+};
+</script>
 <style>
 :root {
   /* Colors */
@@ -90,5 +103,10 @@ p {
 header {
   margin-top: 10.125rem;
   text-align: center;
+}
+
+.calculator-wrapper {
+  width: 100%;
+  background-color: var(--color-white);
 }
 </style>
