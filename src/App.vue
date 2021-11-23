@@ -11,7 +11,7 @@
       </div>
     </header>
 
-    <div class="calculator-wrapper">
+    <div class="calculator-wrapper flex">
       <the-input></the-input>
       <the-output></the-output>
     </div>
@@ -43,6 +43,7 @@ export default {
   --color-mint-cream: #f4fafa;
   --color-white: #ffffff;
   --color-crystal: #9fe8df;
+  --color-water-blue: #0d686d;
 
   /* Font sizes */
   --font-size-13: 0.8125rem;
@@ -119,6 +120,7 @@ header {
 
 .calculator-wrapper {
   width: 100%;
+  gap: 2rem;
   padding: 2rem;
   border-radius: 20px;
   background-color: var(--color-white);
