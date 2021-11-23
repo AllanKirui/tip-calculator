@@ -13,16 +13,19 @@
 
     <div class="calculator-wrapper">
       <the-input></the-input>
+      <the-output></the-output>
     </div>
   </section>
 </template>
 
 <script>
 import TheInput from "./components/TheInput.vue";
+import TheOutput from "./components/TheOutput.vue";
 
 export default {
   components: {
     "the-input": TheInput,
+    "the-output": TheOutput,
   },
 };
 </script>
