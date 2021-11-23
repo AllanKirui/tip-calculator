@@ -39,6 +39,7 @@ export default {
   --color-columbia-blue: #c5e4e7;
   --color-mint-cream: #f4fafa;
   --color-white: #ffffff;
+  --color-crystal: #9fe8df;
 
   /* Font sizes */
   --font-size-13: 0.8125rem;
@@ -96,21 +97,27 @@ p {
 .flex-ai-c {
   align-items: center;
 }
+
+.flex-fw-w {
+  flex-wrap: wrap;
+}
 /* End of utility classes and resets */
 
 .container {
-  margin: 0 auto;
   max-width: 57.5rem;
+  margin: 0 auto;
 }
 
 header {
   margin-top: 10.125rem;
+  margin-bottom: 5.40625rem;
   text-align: center;
 }
 
 .calculator-wrapper {
-  padding: 2rem;
   width: 100%;
+  padding: 2rem;
+  border-radius: 20px;
   background-color: var(--color-white);
 }
 </style>
