@@ -26,7 +26,10 @@ export default {
   },
 };
 </script>
+
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Noto+Sans&family=Space+Mono:wght@400;700&display=swap");
+
 :root {
   /* Colors */
   --color-light-sea-green: #26c0ac;
@@ -106,6 +109,7 @@ header {
 }
 
 .calculator-wrapper {
+  padding: 2rem;
   width: 100%;
   background-color: var(--color-white);
 }
