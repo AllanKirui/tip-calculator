@@ -125,4 +125,24 @@ header {
   border-radius: 20px;
   background-color: var(--color-white);
 }
+
+@media (max-width: 1399px) {
+  header {
+    margin-top: 5.625rem;
+    margin-bottom: 3.125rem;
+  }
+}
+
+@media (max-width: 799px) {
+  header {
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .calculator-wrapper {
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    border-radius: 20px 20px 0 0;
+  }
+}
 </style>

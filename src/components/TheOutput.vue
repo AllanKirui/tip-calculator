@@ -39,12 +39,13 @@
   margin: 0;
   padding: 0;
 }
+
 .output-control:first-child {
   margin-bottom: 1.375rem;
 }
 
 .label-wrapper .label {
-  font-size: 1rem;
+  font-size: var(--font-size-16);
   color: var(--color-white);
 }
 
@@ -79,5 +80,24 @@
 
 .button-wrapper button:hover {
   background-color: var(--color-crystal);
+}
+
+@media (max-width: 799px) {
+  .output-wrapper {
+    max-width: 100%;
+    padding-top: 2.25rem;
+  }
+
+  .output-control:first-child {
+    margin-bottom: 1.75rem;
+  }
+
+  .results {
+    font-size: var(--font-size-32);
+  }
+
+  .button-wrapper {
+    margin-top: 2.25rem;
+  }
 }
 </style>

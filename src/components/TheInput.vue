@@ -63,6 +63,7 @@ form.inputs-form {
 }
 
 .form-control input {
+  width: 100%;
   padding: 0.375rem 1.0625rem 0.375rem 0;
   border-radius: 5px;
   border: none;
@@ -136,5 +137,25 @@ form.inputs-form {
 
 .tip-controls .tip-form input::placeholder {
   color: var(--color-wintergreen-dream);
+}
+
+@media (max-width: 799px) {
+  form.inputs-form {
+    padding: 5px 8px 0;
+  }
+
+  .tip {
+    margin-bottom: 2.375rem;
+  }
+
+  .tip-controls {
+    gap: 1rem;
+  }
+
+  .tip-controls button,
+  .tip-controls .tip-form input {
+    width: 9.15625rem;
+    max-width: 100%;
+  }
 }
 </style>
