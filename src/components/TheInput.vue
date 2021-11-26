@@ -1,8 +1,8 @@
 <template>
-  <form class="inputs-form">
+  <form @submit.prevent class="inputs-form">
     <div class="form-control flex flex-fd-c">
       <label for="bill">Bill</label>
-      <input name="bill" type="text" placeholder="0" />
+      <input name="bill" type="text" placeholder="0" v-model="enteredBill" />
       <img
         src="../assets/images/icon-dollar.svg"
         width="11"
@@ -15,11 +15,21 @@
     <div class="tip">
       <div class="tip-label">Select Tip %</div>
       <div class="tip-controls flex flex-fw-w">
-        <button>5%</button>
-        <button>10%</button>
-        <button>15%</button>
-        <button>25%</button>
-        <button>50%</button>
+        <button :class="tip5 ? 'active-btn' : ''" @click="getTipPercentage">
+          5%
+        </button>
+        <button :class="tip10 ? 'active-btn' : ''" @click="getTipPercentage">
+          10%
+        </button>
+        <button :class="tip15 ? 'active-btn' : ''" @click="getTipPercentage">
+          15%
+        </button>
+        <button :class="tip25 ? 'active-btn' : ''" @click="getTipPercentage">
+          25%
+        </button>
+        <button :class="tip50 ? 'active-btn' : ''" @click="getTipPercentage">
+          50%
+        </button>
         <form class="tip-form">
           <label for="custom"></label>
           <input id="custom" name="custom" type="text" placeholder="Custom" />
@@ -40,6 +50,61 @@
     </div>
   </form>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      enteredBill: 0,
+      enteredPeople: 0,
+      tip: null,
+      tip5: null,
+      tip10: null,
+      tip15: null,
+      tip25: null,
+      tip50: null,
+    };
+  },
+  methods: {
+    getTipPercentage(event) {
+      const buttonText = event.target.innerText;
+      this.tip = parseInt(buttonText.slice(0, -1));
+      this.setBtnActiveStatus(this.tip);
+    },
+    setBtnActiveStatus(buttonValue) {
+      this.resetActiveStatus();
+      const buttonText = buttonValue + "%";
+      switch (buttonText) {
+        case "5%":
+          this.tip5 = buttonValue;
+          break;
+        case "10%":
+          this.tip10 = buttonValue;
+          break;
+        case "15%":
+          this.tip15 = buttonValue;
+          break;
+        case "25%":
+          this.tip25 = buttonValue;
+          break;
+        case "50%":
+          this.tip50 = buttonValue;
+          break;
+        default:
+          break;
+      }
+    },
+    resetActiveStatus() {
+      this.tip5 = null;
+      this.tip10 = null;
+      this.tip15 = null;
+      this.tip25 = null;
+      this.tip50 = null;
+    },
+  },
+};
+</script>
 
 <style scoped>
 form.inputs-form {
@@ -137,6 +202,11 @@ form.inputs-form {
 
 .tip-controls .tip-form input::placeholder {
   color: var(--color-wintergreen-dream);
+}
+
+.tip-controls .active-btn {
+  background-color: var(--color-light-sea-green);
+  color: var(--color-deep-jungle-green);
 }
 
 @media (max-width: 799px) {
