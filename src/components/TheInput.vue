@@ -171,19 +171,25 @@ export default {
       }
     },
     calculateTip() {
+      // check if the user has provided either values
       if (!this.enteredBill || !this.enteredPeople) {
         return;
       }
 
+      // check if we're using a custom tip or not
       if (this.customTip) {
         this.tipAmount = this.enteredBill * (this.customTip / 100);
       } else {
         this.tipAmount = this.enteredBill * (this.tip / 100);
       }
 
+      // perform the calculations
       const totalAmount = this.enteredBill + this.tipAmount;
       this.tipPerPerson = (this.tipAmount / this.enteredPeople).toFixed(2);
       this.totalPerPerson = (totalAmount / this.enteredPeople).toFixed(2);
+
+      // emit the results of the calculations
+      this.$emit("calculation-results", this.tipPerPerson, this.totalPerPerson);
     },
   },
 };
