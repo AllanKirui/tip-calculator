@@ -12,8 +12,11 @@
     </header>
 
     <div class="calculator-wrapper flex">
-      <the-input></the-input>
-      <the-output></the-output>
+      <the-input @calculation-results="getCalculationResults"></the-input>
+      <the-output
+        :tip-amount="tipPerPerson"
+        :total-amount="totalPerPerson"
+      ></the-output>
     </div>
   </section>
 </template>
@@ -26,6 +29,18 @@ export default {
   components: {
     "the-input": TheInput,
     "the-output": TheOutput,
+  },
+  data() {
+    return {
+      tipPerPerson: 0,
+      totalPerPerson: 0,
+    };
+  },
+  methods: {
+    getCalculationResults(tip, total) {
+      this.tipPerPerson = tip;
+      this.totalPerPerson = total;
+    },
   },
 };
 </script>
