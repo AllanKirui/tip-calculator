@@ -15,19 +15,34 @@
     <div class="tip">
       <div class="tip-label">Select Tip %</div>
       <div class="tip-controls flex flex-fw-w">
-        <button :class="tip5 ? 'active-btn' : ''" @click="getTipPercentage">
+        <button
+          :class="tipButtons['tip5'] ? 'active-btn' : ''"
+          @click="getTipPercentage"
+        >
           5%
         </button>
-        <button :class="tip10 ? 'active-btn' : ''" @click="getTipPercentage">
+        <button
+          :class="tipButtons['tip10'] ? 'active-btn' : ''"
+          @click="getTipPercentage"
+        >
           10%
         </button>
-        <button :class="tip15 ? 'active-btn' : ''" @click="getTipPercentage">
+        <button
+          :class="tipButtons['tip15'] ? 'active-btn' : ''"
+          @click="getTipPercentage"
+        >
           15%
         </button>
-        <button :class="tip25 ? 'active-btn' : ''" @click="getTipPercentage">
+        <button
+          :class="tipButtons['tip25'] ? 'active-btn' : ''"
+          @click="getTipPercentage"
+        >
           25%
         </button>
-        <button :class="tip50 ? 'active-btn' : ''" @click="getTipPercentage">
+        <button
+          :class="tipButtons['tip50'] ? 'active-btn' : ''"
+          @click="getTipPercentage"
+        >
           50%
         </button>
         <form class="tip-form">
@@ -59,11 +74,13 @@ export default {
       enteredBill: 0,
       enteredPeople: 0,
       tip: null,
-      tip5: null,
-      tip10: null,
-      tip15: null,
-      tip25: null,
-      tip50: null,
+      tipButtons: {
+        tip5: null,
+        tip10: null,
+        tip15: null,
+        tip25: null,
+        tip50: null,
+      },
     };
   },
   methods: {
@@ -77,30 +94,28 @@ export default {
       const buttonText = buttonValue + "%";
       switch (buttonText) {
         case "5%":
-          this.tip5 = buttonValue;
+          this.tipButtons["tip5"] = buttonValue;
           break;
         case "10%":
-          this.tip10 = buttonValue;
+          this.tipButtons["tip10"] = buttonValue;
           break;
         case "15%":
-          this.tip15 = buttonValue;
+          this.tipButtons["tip15"] = buttonValue;
           break;
         case "25%":
-          this.tip25 = buttonValue;
+          this.tipButtons["tip25"] = buttonValue;
           break;
         case "50%":
-          this.tip50 = buttonValue;
+          this.tipButtons["tip50"] = buttonValue;
           break;
         default:
           break;
       }
     },
     resetActiveStatus() {
-      this.tip5 = null;
-      this.tip10 = null;
-      this.tip15 = null;
-      this.tip25 = null;
-      this.tip50 = null;
+      for (const btn in this.tipButtons) {
+        this.tipButtons[btn] = null;
+      }
     },
   },
 };
