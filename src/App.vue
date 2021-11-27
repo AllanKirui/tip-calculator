@@ -44,6 +44,7 @@ export default {
   --color-white: #ffffff;
   --color-crystal: #9fe8df;
   --color-water-blue: #0d686d;
+  --color-red-pigment: #e52323;
 
   /* Font sizes */
   --font-size-13: 0.8125rem;

@@ -267,11 +267,11 @@ form.inputs-form {
 p.error {
   position: absolute;
   right: 0;
-  color: #e52323;
+  color: var(--color-red-pigment);
 }
 
 input.error {
-  outline: 2.5px solid #e52323;
+  outline: 2.5px solid var(--color-red-pigment);
 }
 
 @media (max-width: 799px) {
