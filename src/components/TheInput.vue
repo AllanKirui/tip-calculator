@@ -6,7 +6,7 @@
         name="bill"
         type="text"
         placeholder="0"
-        v-model="enteredBill"
+        v-model.number="enteredBill"
         @blur="validateBillInput"
         :class="billValidity === 'invalid' ? 'error' : ''"
       />
@@ -55,7 +55,14 @@
         </button>
         <form class="tip-form">
           <label for="custom"></label>
-          <input id="custom" name="custom" type="text" placeholder="Custom" />
+          <input
+            id="custom"
+            name="custom"
+            type="text"
+            placeholder="Custom"
+            v-model.number="customTip"
+            @focus="resetActiveStatus"
+          />
         </form>
       </div>
     </div>
@@ -66,8 +73,9 @@
         name="people"
         type="text"
         placeholder="0"
-        v-model="enteredPeople"
+        v-model.number="enteredPeople"
         @blur="validatePeopleInput"
+        @input="calculateTip"
         :class="peopleValidity === 'invalid' ? 'error' : ''"
       />
       <img
@@ -92,6 +100,7 @@ export default {
       billValidity: "pending",
       peopleValidity: "pending",
       tip: null,
+      customTip: null,
       tipButtons: {
         tip5: null,
         tip10: null,
@@ -99,13 +108,17 @@ export default {
         tip25: null,
         tip50: null,
       },
+      tipAmount: 0,
+      tipPerPerson: 0,
+      totalPerPerson: 0,
     };
   },
   methods: {
     getTipPercentage(event) {
       const buttonText = event.target.innerText;
-      this.tip = parseInt(buttonText.slice(0, -1));
+      this.tip = buttonText.slice(0, -1);
       this.setBtnActiveStatus(this.tip);
+      this.customTip = null;
     },
     setBtnActiveStatus(buttonValue) {
       this.resetActiveStatus();
@@ -156,6 +169,21 @@ export default {
       } else {
         this.peopleValidity = "valid";
       }
+    },
+    calculateTip() {
+      if (!this.enteredBill || !this.enteredPeople) {
+        return;
+      }
+
+      if (this.customTip) {
+        this.tipAmount = this.enteredBill * (this.customTip / 100);
+      } else {
+        this.tipAmount = this.enteredBill * (this.tip / 100);
+      }
+
+      const totalAmount = this.enteredBill + this.tipAmount;
+      this.tipPerPerson = (this.tipAmount / this.enteredPeople).toFixed(2);
+      this.totalPerPerson = (totalAmount / this.enteredPeople).toFixed(2);
     },
   },
 };
