@@ -2,7 +2,14 @@
   <form @submit.prevent class="inputs-form">
     <div class="form-control flex flex-fd-c">
       <label for="bill">Bill</label>
-      <input name="bill" type="text" placeholder="0" v-model="enteredBill" />
+      <input
+        name="bill"
+        type="text"
+        placeholder="0"
+        v-model="enteredBill"
+        @blur="validateBillInput"
+        :class="billValidity === 'invalid' ? 'error' : ''"
+      />
       <img
         src="../assets/images/icon-dollar.svg"
         width="11"
@@ -10,6 +17,7 @@
         class="icon"
         alt="dollar icon"
       />
+      <p class="error" v-if="billValidity === 'invalid'">Can't be zero</p>
     </div>
 
     <div class="tip">
@@ -54,7 +62,14 @@
 
     <div class="form-control flex flex-fd-c">
       <label for="people">Number of People</label>
-      <input name="people" type="text" placeholder="0" />
+      <input
+        name="people"
+        type="text"
+        placeholder="0"
+        v-model="enteredPeople"
+        @blur="validatePeopleInput"
+        :class="peopleValidity === 'invalid' ? 'error' : ''"
+      />
       <img
         src="../assets/images/icon-person.svg"
         width="13"
@@ -62,6 +77,7 @@
         class="icon"
         alt="person icon"
       />
+      <p class="error" v-if="peopleValidity === 'invalid'">Can't be zero</p>
     </div>
   </form>
 </template>
@@ -71,8 +87,10 @@
 export default {
   data() {
     return {
-      enteredBill: 0,
-      enteredPeople: 0,
+      enteredBill: null,
+      enteredPeople: null,
+      billValidity: "pending",
+      peopleValidity: "pending",
       tip: null,
       tipButtons: {
         tip5: null,
@@ -115,6 +133,28 @@ export default {
     resetActiveStatus() {
       for (const btn in this.tipButtons) {
         this.tipButtons[btn] = null;
+      }
+    },
+    validateBillInput() {
+      if (
+        this.enteredBill === "" ||
+        this.enteredBill === 0 ||
+        this.enteredBill === null
+      ) {
+        this.billValidity = "invalid";
+      } else {
+        this.billValidity = "valid";
+      }
+    },
+    validatePeopleInput() {
+      if (
+        this.enteredPeople === "" ||
+        this.enteredPeople === 0 ||
+        this.enteredPeople === null
+      ) {
+        this.peopleValidity = "invalid";
+      } else {
+        this.peopleValidity = "valid";
       }
     },
   },
@@ -222,6 +262,16 @@ form.inputs-form {
 .tip-controls .active-btn {
   background-color: var(--color-light-sea-green);
   color: var(--color-deep-jungle-green);
+}
+
+p.error {
+  position: absolute;
+  right: 0;
+  color: #e52323;
+}
+
+input.error {
+  outline: 2.5px solid #e52323;
 }
 
 @media (max-width: 799px) {
