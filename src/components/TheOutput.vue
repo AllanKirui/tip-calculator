@@ -6,7 +6,7 @@
         <p class="sub-label">/ person</p>
       </div>
       <div class="results-wrapper">
-        <p class="results">$4.27</p>
+        <p class="results">${{ tipAmount === 0 ? "0.00" : tipAmount }}</p>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
         <p class="sub-label">/ person</p>
       </div>
       <div class="results-wrapper">
-        <p class="results">$32.79</p>
+        <p class="results">${{ totalAmount === 0 ? "0.00" : totalAmount }}</p>
       </div>
     </div>
 
@@ -25,6 +25,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["tipAmount", "totalAmount"],
+};
+</script>
 
 <style scoped>
 .output-wrapper {
