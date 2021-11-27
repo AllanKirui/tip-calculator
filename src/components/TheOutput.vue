@@ -21,7 +21,7 @@
     </div>
 
     <div class="button-wrapper">
-      <button>Reset</button>
+      <button :class="totalAmount === 0 ? 'disabled' : ''">Reset</button>
     </div>
   </div>
 </template>
@@ -86,6 +86,11 @@ export default {
 
 .button-wrapper button:hover {
   background-color: var(--color-crystal);
+}
+
+.button-wrapper button.disabled {
+  background-color: var(--color-water-blue);
+  pointer-events: none;
 }
 
 @media (max-width: 799px) {
