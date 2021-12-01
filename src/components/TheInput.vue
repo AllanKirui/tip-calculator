@@ -93,6 +93,7 @@
 
 <script>
 export default {
+  props: ["isReset"],
   emits: ["calculation-results"],
   data() {
     return {
