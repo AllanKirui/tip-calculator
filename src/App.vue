@@ -14,6 +14,7 @@
     <div class="calculator-wrapper flex">
       <the-input
         @calculation-results="getCalculationResults"
+        @reset-status="resetCalcStatus"
         :is-reset="isResetCalc"
       ></the-input>
       <the-output
@@ -48,6 +49,11 @@ export default {
     },
     setResetStatus() {
       this.isResetCalc = !this.isResetCalc;
+    },
+    resetCalcStatus() {
+      this.tipPerPerson = 0;
+      this.totalPerPerson = 0;
+      this.isResetCalc = false;
     },
   },
 };
