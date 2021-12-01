@@ -203,7 +203,7 @@ export default {
       this.tipAmount = 0;
       this.tipPerPerson = 0;
       this.totalPerPerson = 0;
-      this.resetActiveStatus();
+      this.resetButtonStates();
       this.$emit("reset-status");
     },
   },
