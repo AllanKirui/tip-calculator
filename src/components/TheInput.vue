@@ -94,7 +94,7 @@
 <script>
 export default {
   props: ["isReset"],
-  emits: ["calculation-results"],
+  emits: ["calculation-results", "reset-status"],
   data() {
     return {
       enteredBill: null,
@@ -204,6 +204,7 @@ export default {
       this.tipPerPerson = 0;
       this.totalPerPerson = 0;
       this.resetActiveStatus();
+      this.$emit("reset-status");
     },
   },
   updated() {
