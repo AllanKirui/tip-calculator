@@ -194,6 +194,11 @@ export default {
       this.$emit("calculation-results", this.tipPerPerson, this.totalPerPerson);
     },
   },
+  updated() {
+    if (this.isReset) {
+      this.resetCalculator();
+    }
+  },
 };
 </script>
 
