@@ -93,6 +93,7 @@
 
 <script>
 export default {
+  emits: ["calculation-results"],
   data() {
     return {
       enteredBill: null,
