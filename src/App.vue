@@ -12,7 +12,10 @@
     </header>
 
     <div class="calculator-wrapper flex">
-      <the-input @calculation-results="getCalculationResults"></the-input>
+      <the-input
+        @calculation-results="getCalculationResults"
+        :is-reset="isResetCalc"
+      ></the-input>
       <the-output
         :tip-amount="tipPerPerson"
         :total-amount="totalPerPerson"
