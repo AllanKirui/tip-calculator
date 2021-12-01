@@ -61,7 +61,7 @@
             type="text"
             placeholder="Custom"
             v-model.number="customTip"
-            @focus="resetActiveStatus"
+            @focus="resetButtonStates"
           />
         </form>
       </div>
@@ -121,7 +121,7 @@ export default {
       this.customTip = null;
     },
     setBtnActiveStatus(buttonValue) {
-      this.resetActiveStatus();
+      this.resetButtonStates();
       const buttonText = buttonValue + "%";
       switch (buttonText) {
         case "5%":
@@ -143,7 +143,7 @@ export default {
           break;
       }
     },
-    resetActiveStatus() {
+    resetButtonStates() {
       for (const btn in this.tipButtons) {
         this.tipButtons[btn] = null;
       }
