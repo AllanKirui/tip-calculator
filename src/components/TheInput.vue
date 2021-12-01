@@ -193,6 +193,18 @@ export default {
       // emit the results of the calculations
       this.$emit("calculation-results", this.tipPerPerson, this.totalPerPerson);
     },
+    resetCalculator() {
+      this.enteredBill = null;
+      this.enteredPeople = null;
+      this.billValidity = "pending";
+      this.peopleValidity = "pending";
+      this.tip = null;
+      this.customTip = null;
+      this.tipAmount = 0;
+      this.tipPerPerson = 0;
+      this.totalPerPerson = 0;
+      this.resetActiveStatus();
+    },
   },
   updated() {
     if (this.isReset) {
