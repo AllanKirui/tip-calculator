@@ -16,6 +16,7 @@
       <the-output
         :tip-amount="tipPerPerson"
         :total-amount="totalPerPerson"
+        @setStatus="setResetStatus"
       ></the-output>
     </div>
   </section>
@@ -34,12 +35,16 @@ export default {
     return {
       tipPerPerson: 0,
       totalPerPerson: 0,
+      isResetCalc: false,
     };
   },
   methods: {
     getCalculationResults(tip, total) {
       this.tipPerPerson = tip;
       this.totalPerPerson = total;
+    },
+    setResetStatus() {
+      this.isResetCalc = !this.isResetCalc;
     },
   },
 };
