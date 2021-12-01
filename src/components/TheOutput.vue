@@ -21,7 +21,12 @@
     </div>
 
     <div class="button-wrapper">
-      <button :class="totalAmount === 0 ? 'disabled' : ''">Reset</button>
+      <button
+        :class="totalAmount === 0 ? 'disabled' : ''"
+        @click="$emit('set-status')"
+      >
+        Reset
+      </button>
     </div>
   </div>
 </template>
@@ -29,6 +34,7 @@
 <script>
 export default {
   props: ["tipAmount", "totalAmount"],
+  emits: ["set-status"],
 };
 </script>
 
