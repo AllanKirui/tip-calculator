@@ -23,6 +23,19 @@
         @setStatus="setResetStatus"
       ></the-output>
     </div>
+
+    <div class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.github.com/AllanKirui" target="_blank" rel="noopener"
+        >Allan Kirui</a
+      >.
+    </div>
   </section>
 </template>
 
@@ -74,6 +87,7 @@ export default {
   --color-crystal: #9fe8df;
   --color-water-blue: #0d686d;
   --color-red-pigment: #e52323;
+  --color-deep-space-sparkle: #4a5f62;
 
   /* Font sizes */
   --font-size-13: 0.8125rem;
@@ -154,6 +168,38 @@ header {
   padding: 2rem;
   border-radius: 20px;
   background-color: var(--color-white);
+}
+
+.attribution {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  line-height: 2;
+  font-size: var(--font-size-16);
+  color: var(--color-deep-space-sparkle);
+}
+
+.attribution a {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-deep-jungle-green);
+}
+
+.attribution a::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -9px;
+  background-color: var(--color-deep-jungle-green);
+  width: 0;
+  height: 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+.attribution a:hover::before {
+  width: 3.125rem;
 }
 
 @media (max-width: 1399px) {
