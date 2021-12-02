@@ -75,7 +75,6 @@
         placeholder="0"
         v-model.number="enteredPeople"
         @blur="validatePeopleInput"
-        @input="calculateTip"
         :class="peopleValidity === 'invalid' ? 'error' : ''"
       />
       <img
@@ -173,11 +172,6 @@ export default {
       }
     },
     calculateTip() {
-      // check if the user has provided either values
-      if (!this.enteredBill || !this.enteredPeople) {
-        return;
-      }
-
       // check if we're using a custom tip or not
       if (this.customTip) {
         this.tipAmount = this.enteredBill * (this.customTip / 100);
@@ -210,6 +204,9 @@ export default {
   updated() {
     if (this.isReset) {
       this.resetCalculator();
+    }
+    if (this.enteredBill && this.enteredPeople) {
+      this.calculateTip();
     }
   },
 };
