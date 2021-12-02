@@ -344,4 +344,11 @@ input.error {
     max-width: 100%;
   }
 }
+
+@media (max-width: 374px) {
+  .tip-controls button,
+  .tip-controls .tip-form input {
+    width: 100%;
+  }
+}
 </style>
