@@ -350,5 +350,10 @@ input.error {
   .tip-controls .tip-form input {
     width: 100%;
   }
+
+  p.error {
+    background-color: var(--color-white);
+    left: 0;
+  }
 }
 </style>
