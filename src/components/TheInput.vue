@@ -53,7 +53,7 @@
         >
           50%
         </button>
-        <form class="tip-form">
+        <div class="tip-form">
           <label for="custom"></label>
           <input
             id="custom"
@@ -63,7 +63,7 @@
             v-model.number="customTip"
             @focus="resetButtonStates"
           />
-        </form>
+        </div>
       </div>
     </div>
 
