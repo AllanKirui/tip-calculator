@@ -71,8 +71,8 @@ What's in view:
 
 ### Links
 
-- Solution URL: [Challenge Solution]()
-- Live Site URL: [Tip Calculator](https://allankirui.github.io/tip-calculator-app/)
+- Solution URL: [Challenge Solution](https://www.frontendmentor.io/solutions/built-using-vuejs-guide-to-coding-challenges-included-in-readme-73LKXCnlI)
+- Live Site URL: [Tip Calculator](https://allankirui.github.io/tip-calculator/)
 
 ### How to use
 
