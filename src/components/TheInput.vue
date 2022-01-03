@@ -22,7 +22,7 @@
 
     <div class="tip">
       <div class="tip-label">Select Tip %</div>
-      <div class="tip-controls flex flex-fw-w">
+      <div class="tip-controls">
         <button
           :class="tipButtons['tip5'] ? 'active-btn' : ''"
           @click="getTipPercentage"
@@ -265,12 +265,14 @@ form.inputs-form {
 }
 
 .tip-controls {
+  display: grid;
   gap: 0.85rem;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .tip-controls button,
 .tip-controls .tip-form input {
-  width: 7.3125rem;
+  width: 100%;
   border-radius: 5px;
   border: none;
   font-family: inherit;
@@ -337,20 +339,15 @@ input.error {
   .tip-controls {
     gap: 1rem;
   }
+}
 
-  .tip-controls button,
-  .tip-controls .tip-form input {
-    width: 9.15625rem;
-    max-width: 100%;
+@media (max-width: 499px) {
+  .tip-controls {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 374px) {
-  .tip-controls button,
-  .tip-controls .tip-form input {
-    width: 100%;
-  }
-
   p.error {
     background-color: var(--color-white);
     left: 0;
