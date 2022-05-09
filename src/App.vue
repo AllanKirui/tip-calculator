@@ -158,7 +158,7 @@ p {
 
 header {
   margin-top: 10.125rem;
-  margin-bottom: 5.40625rem;
+  margin-bottom: 5.125rem;
   text-align: center;
 }
 
